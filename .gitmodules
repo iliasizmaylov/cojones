@@ -1,0 +1,3 @@
+[submodule "src/six502"]
+	path = src/six502
+	url = https://github.com/iliasizmaylov/six502
