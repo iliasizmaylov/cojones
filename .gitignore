@@ -1,8 +1,7 @@
-cojones
+CojoNES
 *.o
 *.vim
 *.log
-Makefile
 *.so
 *.so.*
 *.a
