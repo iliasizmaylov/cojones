@@ -15,8 +15,8 @@ public:
 	const uint64_t id;
 
 public:
-	virtual addr_t map_read(addr_t addr) = 0;
-	virtual addr_t map_write(addr_t addr) = 0;
+	virtual addr_t map_read(const addr_t& addr) = 0;
+	virtual addr_t map_write(const addr_t& addr) = 0;
 
 public:
 	Mapper(const uint64_t& new_id);
