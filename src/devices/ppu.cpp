@@ -38,24 +38,36 @@ addr_t PPU::mirror(addr_t addr) const
 	return addr & PPU::addr_mirror_mask;
 }
 
-result_t PPU::ppu_read(addr_t, databus_t *data)
+result_t PPU::ppu_read(addr_t addr, databus_t *data)
 {
+	if (!isin_addr_range(&iorange, addr))
+		return SIX502_RET_NO_RW;
+
 	return SIX502_RET_SUCCESS;
 }
 
-result_t PPU::ppu_write(addr_t, databus_t data)
+result_t PPU::ppu_write(addr_t addr, databus_t data)
 {
+	if (!isin_addr_range(&iorange, addr))
+		return SIX502_RET_NO_RW;
+
 	return SIX502_RET_SUCCESS;
 }
 
 result_t PPU::process_read(addr_t addr, databus_t *data)
 {
+	if (!isin_addr_range(&iorange, addr))
+		return SIX502_RET_NO_RW;
+
 	addr_t m_addr = mirror(addr);
 	return readfn[m_addr](m_addr, data);
 }
 
 result_t PPU::process_write(addr_t addr, databus_t data)
 {
+	if (!isin_addr_range(&iorange, addr))
+		return SIX502_RET_NO_RW;
+
 	addr_t m_addr = mirror(addr);
 	return writefn[m_addr](m_addr, data);
 }

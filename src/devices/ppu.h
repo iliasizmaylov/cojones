@@ -4,6 +4,7 @@
 
 #include <functional>
 #include <array>
+#include <memory>
 
 #include "cartridge.h"
 
